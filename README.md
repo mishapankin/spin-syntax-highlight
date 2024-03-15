@@ -1,9 +1,8 @@
-# spin-syntax-highlight README
+# Spinroot (promela) syntax highlighting
 
 Basic syntax highlighting for [prolema language](https://spinroot.com/spin/Man/promela.html) ([SPIN](https://spinroot.com/spin/whatispin.html)).
 
 ## Features
-
 - Syntax highlighting
 - Embedded C support
 
