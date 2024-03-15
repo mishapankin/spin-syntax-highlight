@@ -1,0 +1,111 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "spin",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#preprocessor"
+		},
+		{
+			"include": "#typenames"
+		},
+		{
+			"include": "#labels"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#proctype"
+		},
+		{
+			"include": "#chan"
+		}
+	],
+	"repository": {
+		"chan": {
+			"patterns": [
+				{
+					"name": "variable.other.chan.spin",
+					"match": "\\b\\w+[?!]"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.spin",
+					"match": "(//.*)|(/\\*.*?\\*/)"
+				}
+			]
+		},
+		"labels": {
+			"patterns": [
+				{
+					"name": "entity.name.tag.spin",
+					"match": "\\b\\w+:"
+				}
+			]
+		},
+		"typenames": {
+			"patterns": [
+				{
+					"name": "storage.type.spin",
+					"match": "\\b(int|chan|byte|bool)\\b"
+				}
+			]
+		},
+		"preprocessor": {
+			"patterns": [
+				{
+					"name": "keyword.control.preprocessor.spin",
+					"match": "^\\s*#\\s*\\w+"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.numeric.spin",
+					"match": "\\b(0b[01]+|0x[0-9a-fA-F]+|\\d+|_)\\b"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.spin",
+					"match": "\\b(if|fi|do|od|run|ltl|of|timeout|assert)\\b"
+				}
+			]
+		},
+		"proctype": {
+			"patterns": [
+				{
+					"name": "keyword.function.spin",
+					"match": "\\b(proctype|active|init)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.spin",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.spin",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.spin"
+}
