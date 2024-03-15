@@ -3,79 +3,45 @@
 	"name": "spin",
 	"patterns": [
 		{
+			"include": "#labels"
+		},
+		{
 			"include": "#keywords"
 		},
 		{
-			"include": "#strings"
+			"include": "#declarators"
 		},
 		{
-			"include": "#constants"
-		},
-		{
-			"include": "#preprocessor"
-		},
-		{
-			"include": "#typenames"
-		},
-		{
-			"include": "#labels"
+			"include": "#basicStatements"
 		},
 		{
 			"include": "#comments"
 		},
 		{
-			"include": "#proctype"
+			"include": "#typenames"
 		},
 		{
-			"include": "#chan"
+			"include": "#preprocessor"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#predefinded"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#c_decl"
 		}
 	],
 	"repository": {
-		"chan": {
-			"patterns": [
-				{
-					"name": "variable.other.chan.spin",
-					"match": "\\b\\w+[?!]"
-				}
-			]
-		},
-		"comments": {
-			"patterns": [
-				{
-					"name": "comment.line.spin",
-					"match": "(//.*)|(/\\*.*?\\*/)"
-				}
-			]
-		},
 		"labels": {
 			"patterns": [
 				{
-					"name": "entity.name.tag.spin",
-					"match": "\\b\\w+:"
-				}
-			]
-		},
-		"typenames": {
-			"patterns": [
-				{
-					"name": "storage.type.spin",
-					"match": "\\b(int|chan|byte|bool)\\b"
-				}
-			]
-		},
-		"preprocessor": {
-			"patterns": [
-				{
-					"name": "keyword.control.preprocessor.spin",
-					"match": "^\\s*#\\s*\\w+"
-				}
-			]
-		},
-		"constants": {
-			"patterns": [
-				{
-					"name": "constant.numeric.spin",
-					"match": "\\b(0b[01]+|0x[0-9a-fA-F]+|\\d+|_)\\b"
+					"name": "variable.other.label.spin",
+					"match": "\\b\\w+?:"
 				}
 			]
 		},
@@ -83,15 +49,72 @@
 			"patterns": [
 				{
 					"name": "keyword.control.spin",
-					"match": "\\b(if|fi|do|od|run|ltl|of|timeout|assert)\\b"
+					"match": "\\b(atomic|break|d_step|do|od|for|in|goto|if|fi|sequence|unless|ltl)\\b"
 				}
 			]
 		},
-		"proctype": {
+		"declarators": {
 			"patterns": [
 				{
-					"name": "keyword.function.spin",
-					"match": "\\b(proctype|active|init)\\b"
+					"name": "keyword.spin",
+					"match": "\\b(active|accept|hidden|init|local|mtype|never|notrace|priority|proctype|provided|show|trace|typedef|xr|xs|c_state|c_track)\\b"
+				}
+			]
+		},
+		"basicStatements": {
+			"patterns": [
+				{
+					"name": "keyword.spin",
+					"match": "\\b(assert|assign|printf)\\b"
+				}
+			]
+		},
+		"predefinded": {
+			"patterns": [
+				{
+					"name": "entity.name.function.spin",
+					"match": "\\b(_last|_pid|_nr_pr|else|empty|enabled|eval|full|len|nempty|nfull|np_|pc_value|remoterefs|run|stdin|timeout|_)\\b"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.spin",
+					"match": "//.*$"
+				},
+				{
+					"name": "comment.block.spin",
+					"begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
+		},
+		"typenames": {
+			"patterns": [
+				{
+					"name": "storage.type.spin",
+					"match": "\\b(chan|bit|bool|byte|short|int)\\b"
+				}
+			]
+		},
+		"preprocessor": {
+			"patterns": [
+				{
+					"name": "keyword.control.preprocessor.spin",
+					"match": "^\\s*#\\w+"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.numeric.spin",
+					"match": "\\b(\\d+|_)\\b"
+				},
+				{
+					"name": "constant.language",
+					"match": "\\b(true|false|skip)\\b"
 				}
 			]
 		},
@@ -103,6 +126,26 @@
 				{
 					"name": "constant.character.escape.spin",
 					"match": "\\\\."
+				}
+			]
+		},
+		"c_decl": {
+			"begin": ".*(c_code|c_expr|c_decl).*(\\[.*\\])?.*?\\{",
+			"end": "}",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.code.open"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.code.close"
+				}
+			},
+			"name": "meta.embedded.block.c",
+			"patterns": [
+				{
+					"include": "source.c"
 				}
 			]
 		}
