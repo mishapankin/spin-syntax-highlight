@@ -2,6 +2,7 @@
   "name": "spin-syntax-highlight",
   "displayName": "spin-syntax-highlight",
   "description": "Spin syntax highlight",
+  "publisher": "mishapankin",
   "icon": "img/icon.png",
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
           "spin"
         ],
         "extensions": [
-          ".spin"
+          ".spin",
+          ".pml"
         ],
         "configuration": "./language-configuration.json"
       }
