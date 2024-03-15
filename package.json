@@ -1,7 +1,8 @@
 {
   "name": "spin-syntax-highlight",
   "displayName": "spin-syntax-highlight",
-  "description": "Spin .pml syntax highlight",
+  "description": "Spin syntax highlight",
+  "icon": "img/icon.png",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.87.0"
@@ -10,16 +11,28 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "spin",
-      "aliases": ["spin", "spin"],
-      "extensions": [".spin"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "spin",
-      "scopeName": "source.spin",
-      "path": "./syntaxes/spin.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "spin",
+        "aliases": [
+          "spin",
+          "spin"
+        ],
+        "extensions": [
+          ".spin"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "spin",
+        "scopeName": "source.spin",
+        "path": "./syntaxes/spin.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.c": "c"
+        }
+      }
+    ]
   }
 }
