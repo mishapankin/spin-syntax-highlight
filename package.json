@@ -3,6 +3,10 @@
   "displayName": "spin-syntax-highlight",
   "description": "Spin syntax highlight",
   "icon": "img/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mishapankin/spin-syntax-highlight/"
+  },
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.87.0"

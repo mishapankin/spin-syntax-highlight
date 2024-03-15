@@ -7,7 +7,7 @@ Basic syntax highlighting for [prolema language](https://spinroot.com/spin/Man/p
 - Syntax highlighting
 - Embedded C support
 
-![Highlight example](img/example.png)
+![Highlight example](./img/example.png)
 
 ## Known Issues
 New issues could be reported to the [GitHub repository](https://github.com/mishapankin/spin-syntax-highlight/issues).
