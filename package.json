@@ -19,6 +19,10 @@
     "languages": [
       {
         "id": "spin",
+        "icon": {
+          "light": "img/icon.svg",
+          "dark": "img/icon.svg"
+        },
         "aliases": [
           "spin",
           "spin"
